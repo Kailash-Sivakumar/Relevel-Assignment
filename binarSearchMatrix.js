@@ -20,7 +20,9 @@ let search2DArray = (arr, k) => {
     let mid = low + parseInt(high - low / 2);
 
     if (arr[mid][0] <= k && arr[mid][N - 1])
-      return ` [${mid}] [${binarySearch(arr[mid], k)}]`;
+      if (binarySearch(arr[mid], k))
+        return ` [${mid}] [${binarySearch(arr[mid], k)}]`;
+      else return false;
 
     if (arr[mid][0] > k) high = mid - 1;
     else if (arr[mid][N - 1] < k) low = mid + 1;
